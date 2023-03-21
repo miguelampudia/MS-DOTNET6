@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: service-aforo255
-        image: mampudia/dotnet6:latest
+        image: mampudia/dotnet6:v3
         ports:
         - containerPort: 80
         imagePullPolicy: Always
