@@ -23,6 +23,8 @@ pipeline {
         }
         stage('Deploy AKS') {
             steps {
+               //bat(script: 'az aks get-credentials --resource-group Devops --name aksdevops23  & kubectl config get-contexts --kubeconfig=%KUBE_PATH_CONFIG%', returnStdout: true);
+               //bat(script: 'kubectl config use-context aksdevops23  --kubeconfig=%KUBE_PATH_CONFIG%', returnStdout: true);
                bat(script: 'kubectl apply -f k8s.yml --kubeconfig=%KUBE_PATH_CONFIG%' , returnStdout:true);
                bat(script: 'kubectl rollout restart deployment app-deployment --kubeconfig=%KUBE_PATH_CONFIG%' , returnStdout:true);
             }
